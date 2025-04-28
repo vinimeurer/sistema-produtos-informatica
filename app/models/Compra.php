@@ -124,4 +124,175 @@ class Compra {
             return false;
         }
     }
+
+
+
+
+
+    // Adicione estas funções à classe Compra existente:
+
+    public function listarTodasCompras($filtros = []) {
+        try {
+            $query = "SELECT c.*, u.nome as nomeUsuario, COUNT(ic.idItemCompra) as totalItens 
+                    FROM compra c 
+                    JOIN usuario u ON c.idUsuario = u.idUsuario 
+                    LEFT JOIN item_compra ic ON c.idCompra = ic.idCompra 
+                    WHERE 1=1";
+            
+            $params = [];
+            
+            // Filtro por data inicial
+            if (!empty($filtros['dataInicial'])) {
+                $query .= " AND c.dataCompra >= :dataInicial";
+                $params[':dataInicial'] = $filtros['dataInicial'] . ' 00:00:00';
+            }
+            
+            // Filtro por data final
+            if (!empty($filtros['dataFinal'])) {
+                $query .= " AND c.dataCompra <= :dataFinal";
+                $params[':dataFinal'] = $filtros['dataFinal'] . ' 23:59:59';
+            }
+            
+            // Filtro por usuário
+            if (!empty($filtros['idUsuario'])) {
+                $query .= " AND c.idUsuario = :idUsuario";
+                $params[':idUsuario'] = $filtros['idUsuario'];
+            }
+            
+            // Filtro por valor mínimo
+            if (isset($filtros['valorMinimo']) && $filtros['valorMinimo'] !== '') {
+                $query .= " AND c.valorTotal >= :valorMinimo";
+                $params[':valorMinimo'] = str_replace(',', '.', $filtros['valorMinimo']);
+            }
+            
+            // Filtro por valor máximo
+            if (isset($filtros['valorMaximo']) && $filtros['valorMaximo'] !== '') {
+                $query .= " AND c.valorTotal <= :valorMaximo";
+                $params[':valorMaximo'] = str_replace(',', '.', $filtros['valorMaximo']);
+            }
+            
+            $query .= " GROUP BY c.idCompra ORDER BY c.dataCompra DESC";
+            
+            // Adiciona paginação se necessário
+            if (isset($filtros['page']) && isset($filtros['itemsPerPage'])) {
+                $offset = ($filtros['page'] - 1) * $filtros['itemsPerPage'];
+                $limit = $filtros['itemsPerPage'];
+                $query .= " LIMIT :limit OFFSET :offset";
+                $params[':limit'] = $limit;
+                $params[':offset'] = $offset;
+            }
+            
+            $stmt = $this->conn->prepare($query);
+            
+            // Bind de parâmetros
+            foreach($params as $key => $value) {
+                if(in_array($key, [':limit', ':offset'])) {
+                    $stmt->bindValue($key, $value, PDO::PARAM_INT);
+                } else {
+                    $stmt->bindValue($key, $value);
+                }
+            }
+            
+            $stmt->execute();
+            $compras = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+            // Calcular estatísticas para o relatório
+            $estatisticas = $this->calcularEstatisticasCompras($filtros);
+            
+            return [
+                'compras' => $compras,
+                'estatisticas' => $estatisticas
+            ];
+            
+        } catch (PDOException $e) {
+            error_log("Erro ao listar compras: " . $e->getMessage());
+            return [
+                'compras' => [],
+                'estatisticas' => [
+                    'totalCompras' => 0,
+                    'valorTotal' => 0,
+                    'mediaValor' => 0
+                ]
+            ];
+        }
+    }
+
+    private function calcularEstatisticasCompras($filtros = []) {
+        try {
+            $query = "SELECT 
+                        COUNT(c.idCompra) as totalCompras,
+                        SUM(c.valorTotal) as valorTotal,
+                        AVG(c.valorTotal) as mediaValor
+                    FROM compra c 
+                    WHERE 1=1";
+            
+            $params = [];
+            
+            // Filtro por data inicial
+            if (!empty($filtros['dataInicial'])) {
+                $query .= " AND c.dataCompra >= :dataInicial";
+                $params[':dataInicial'] = $filtros['dataInicial'] . ' 00:00:00';
+            }
+            
+            // Filtro por data final
+            if (!empty($filtros['dataFinal'])) {
+                $query .= " AND c.dataCompra <= :dataFinal";
+                $params[':dataFinal'] = $filtros['dataFinal'] . ' 23:59:59';
+            }
+            
+            // Filtro por usuário
+            if (!empty($filtros['idUsuario'])) {
+                $query .= " AND c.idUsuario = :idUsuario";
+                $params[':idUsuario'] = $filtros['idUsuario'];
+            }
+            
+            // Filtro por valor mínimo
+            if (isset($filtros['valorMinimo']) && $filtros['valorMinimo'] !== '') {
+                $query .= " AND c.valorTotal >= :valorMinimo";
+                $params[':valorMinimo'] = str_replace(',', '.', $filtros['valorMinimo']);
+            }
+            
+            // Filtro por valor máximo
+            if (isset($filtros['valorMaximo']) && $filtros['valorMaximo'] !== '') {
+                $query .= " AND c.valorTotal <= :valorMaximo";
+                $params[':valorMaximo'] = str_replace(',', '.', $filtros['valorMaximo']);
+            }
+            
+            $stmt = $this->conn->prepare($query);
+            
+            // Bind de parâmetros
+            foreach($params as $key => $value) {
+                $stmt->bindValue($key, $value);
+            }
+            
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+            
+        } catch (PDOException $e) {
+            error_log("Erro ao calcular estatísticas: " . $e->getMessage());
+            return [
+                'totalCompras' => 0,
+                'valorTotal' => 0,
+                'mediaValor' => 0
+            ];
+        }
+    }
+
+    public function getUsuariosComCompras() {
+        try {
+            $query = "SELECT DISTINCT u.idUsuario, u.nome
+                    FROM usuario u
+                    JOIN compra c ON u.idUsuario = c.idUsuario
+                    ORDER BY u.nome ASC";
+            
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+        } catch (PDOException $e) {
+            error_log("Erro ao listar usuários com compras: " . $e->getMessage());
+            return [];
+        }
+    }
 }

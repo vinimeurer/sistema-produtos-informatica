@@ -105,10 +105,10 @@ function formatarCNPJ($cnpj) {
                         <p>Histórico de Acessos</p>
                     </a>
 
-                    <!-- <a href="#" download class="function">
+                    <a href="../public/index.php?controller=compra&action=relatorioVendas" class="function">
                     <i class="fa-solid fa-file-invoice-dollar"></i>
                         <p>Relatório de Vendas</p>
-                    </a> -->
+                    </a>
 
                     <!-- <a href="#"class="function" style="visibility: hidden">>
                         <p> </p>

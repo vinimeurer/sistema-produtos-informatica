@@ -75,4 +75,77 @@ class CompraController {
 
         require_once dirname(__DIR__) . '/views/compras/detalhes.php';
     }
+
+
+
+
+
+
+
+    // Adicione estes métodos à classe CompraController:
+
+    public function relatorioVendas() {
+        // Verificar se é um administrador
+        $this->validateAdminAccess();
+        
+        // Obter parâmetros de filtros
+        $filtros = [
+            'dataInicial' => $_GET['dataInicial'] ?? '',
+            'dataFinal' => $_GET['dataFinal'] ?? '',
+            'idUsuario' => $_GET['idUsuario'] ?? '',
+            'valorMinimo' => $_GET['valorMinimo'] ?? '',
+            'valorMaximo' => $_GET['valorMaximo'] ?? '',
+            'page' => isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1,
+            'itemsPerPage' => 15
+        ];
+        
+        // Obter resultados filtrados
+        $resultado = $this->compra->listarTodasCompras($filtros);
+        $compras = $resultado['compras'];
+        $estatisticas = $resultado['estatisticas'];
+        
+        // Obter lista de usuários para o filtro
+        $usuarios = $this->compra->getUsuariosComCompras();
+        
+        // Calcular paginação
+        $totalItems = $estatisticas['totalCompras'];
+        $itemsPerPage = $filtros['itemsPerPage'];
+        $paginaAtual = $filtros['page'];
+        $totalPaginas = ceil($totalItems / $itemsPerPage);
+        
+        require_once dirname(__DIR__) . '/views/vendas/relatorio.php';
+    }
+
+    public function detalhesVendaAdmin() {
+        // Verificar se é um administrador
+        $this->validateAdminAccess();
+        
+        $idCompra = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+        
+        if ($idCompra <= 0) {
+            header('Location: ../public/index.php?controller=compra&action=relatorioVendas&error=1');
+            exit;
+        }
+        
+        $compra = $this->compra->getCompraDetalhes($idCompra);
+        
+        if (!$compra) {
+            header('Location: ../public/index.php?controller=compra&action=relatorioVendas&error=1');
+            exit;
+        }
+        
+        require_once dirname(__DIR__) . '/views/vendas/detalhes.php';
+    }
+
+    private function validateAdminAccess() {
+        if (!isset($_SESSION['loggedin'])) {
+            header('Location: ../public/index.php?controller=auth&action=login');
+            exit;
+        }
+        
+        if (!isset($_SESSION['idTipoLogin']) || $_SESSION['idTipoLogin'] != 2) {
+            header('Location: ../public/index.php?controller=home&action=index&error=unauthorized');
+            exit;
+        }
+    }
 }
