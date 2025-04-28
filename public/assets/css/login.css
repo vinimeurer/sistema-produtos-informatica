@@ -1,0 +1,245 @@
+/* 
+####################################################### CSS LOGIN
+*/
+
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+    font-size: 16px;
+}
+body.authenticate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2f3546;
+    margin: 0;
+}
+.login {
+    width: 400px;
+    background-color: #ffffff;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    border-radius: 8px;
+    
+}
+.login img {
+    max-width: 300px;
+    width: 100%; 
+    height: auto;
+    padding: 20px;
+    /* padding-top: 40px; */
+}
+.login h1 {
+    text-align: center;
+    color: #0f2566;
+    /* color: #2f4639; */
+    font-size: 45px;
+    /* padding: 0px 0 20px 0; */
+    /* border-bottom: 1px solid #dee0e4; */
+}
+.login form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+}
+.login form label {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #0f2566;
+    color: #ffffff;
+}
+.login form input[type="password"], .login form input[type="text"] {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    width: 310px;
+    height: 50px;
+    border: 1px solid #dee0e4;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+.login form input[type="submit"] {
+    width: 100%;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 20px;
+    background-color: #0f2566;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+    transition: background-color 0.2s;
+}
+.login form input[type="submit"]:hover {
+  background-color: #0d2059;
+  transition: background-color 0.2s;
+}
+
+
+/* 
+####################################################### MODAL TIMEOUT 
+*/
+
+.timeout-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+.timeout-modal-content {
+  background-color: #fefefe;
+  padding: 30px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.timeout-modal-content h2 {
+  color: #0f2566;
+  margin-bottom: 20px;
+}
+
+.timeout-modal-close {
+  background-color: #0f2566;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.timeout-modal-close:hover {
+  background-color: #0d2059;
+}
+
+/* 
+####################################################### CSS ANIMAÇÃO ERRO AO CADASTRAR 
+*/
+
+.error-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px; 
+  height: 150px; 
+  position: relative;
+}
+
+.svg-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.circular {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.path {
+  stroke: #de2121; 
+  stroke-width: 5;
+  fill: none;
+  stroke-dasharray: 350; 
+  animation: draw-circle 1s ease forwards;
+}
+
+.cross {
+  stroke-width: 6.25;
+  stroke-linecap: round;
+  position: absolute;
+  top: 54px; 
+  left: 54px; 
+  width: 40px;
+  height: 40px;
+}
+
+.cross .first-line,
+.cross .second-line {
+  fill: none;
+  stroke: #de2121; 
+  animation: 0.7s ease-out forwards;
+}
+
+.cross .first-line {
+  animation-name: draw-first-line;
+}
+
+.cross .second-line {
+  animation-name: draw-second-line;
+}
+
+@keyframes draw-circle {
+  0% {
+      stroke-dashoffset: 300; /
+  }
+  100% {
+      stroke-dashoffset: 0; 
+  }
+}
+
+@keyframes draw-first-line {
+  0% {
+      stroke-dasharray: 0, 56;
+      stroke-dashoffset: 0;
+  }
+  100% {
+      stroke-dasharray: 56, 56; 
+      stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw-second-line {
+  0% {
+      stroke-dasharray: 0, 55;
+      stroke-dashoffset: 1;
+  }
+  100% {
+      stroke-dasharray: 55, 0;
+      stroke-dashoffset: 70;
+  }
+}
+
+.fade-out {
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+.fade-out.hidden {
+  opacity: 0;
+}
+

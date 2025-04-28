@@ -1,0 +1,419 @@
+/* 
+####################################################### CSS NAVBAR
+*/
+
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+    font-size: 16px;
+}
+
+.navtop {
+    background-color: #0f2566;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px; 
+}
+
+.nav-left {
+    flex: 0; 
+}
+
+.navtop img {
+    height: 70px; 
+}
+
+.nav-login-info {
+    padding: 50px;
+}
+
+.nav-login-info p {
+    font-size: 25px;
+    color: #eaebed;
+    font-weight: bold;
+}
+
+
+.nav-login-info {
+    padding: 50px;
+}
+
+.nav-login-info p {
+    font-size: 25px;
+    color: #eaebed;
+    font-weight: bold;
+}
+
+.nav-right {
+    margin-left: auto; 
+    display: flex; 
+    align-items: center; 
+}
+
+.nav-right a {
+    font-size: 20px;
+    padding-right: 30px;
+    text-decoration: none;
+    color: #eaebed;
+    font-weight: bold;
+}
+
+.nav-right a i {
+    padding: 2px 8px 0 0;
+}
+
+.nav-right a:hover {
+    color: #eaebed;
+}
+
+/* 
+####################################################### PÁGINA INICIAL 
+*/
+
+body.loggedin {
+    background-color: #f3f4f7;
+    margin: 0 auto;
+}
+.content {
+    width: 1200px;
+    margin: 0 auto;
+}
+.content h2 {
+    margin: 0;
+    padding: 25px 0;
+    font-size: 22px;
+    border-bottom: 1px solid #e0e0e3;
+    color: #0f2566;
+}
+.content > p, .content > div {
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    margin: 25px 0;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+.content > p table td, .content > div table td {
+    padding: 5px;
+}
+.content > p table td:first-child, .content > div table td:first-child {
+    font-weight: bold;
+    color: #0f2566;
+    padding-right: 15px;
+}
+.content > div p {
+    padding: 5px;
+    margin: 0 0 10px 0;
+}
+
+.function-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    flex-wrap: wrap; 
+}
+
+.function {
+    display: inline-block; 
+    margin: 20px;
+    padding: 15px;
+    width: 175px;
+    height: 160px;
+    border: 1px solid #e0e0e3;
+    text-align: center; 
+    text-decoration: none; 
+    color: inherit; 
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.function:hover {
+    transform: scale(1.05); 
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.function i {
+    color: #0f2566;
+    font-size: 70px;
+    margin-bottom: 10px;
+}
+
+.function a {
+    text-decoration: none;
+}
+
+
+/* Estilos para a seção de relatórios */
+/* .reports-section {
+    margin-top: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.reports-header {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.reports-header span {
+    font-size: 18px;
+    color: #333;
+}
+
+.reports-header i {
+    color: #333;
+    transition: transform 0.3s ease;
+}
+
+.reports-header i.rotate {
+    transform: rotate(180deg);
+}
+
+.reports-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #f5f5f5;
+    border-radius: 0 0 8px 8px;
+}
+
+.reports-content.show {
+    max-height: 500px; /* Valor alto o suficiente para acomodar o conteúdo 
+}
+
+
+.reports-grid {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.report-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    background-color: #0f2566;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.report-button:hover {
+    background-color: #0a4c28;
+}
+
+.report-button i {
+    font-size: 20px;
+}
+
+.report-button span {
+    font-size: 14px;
+    color: white;
+} */
+
+/* 
+####################################################### CSS ANIMAÇÃO SUCESSO AO CADASTRAR 
+*/
+
+.success-animation {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(255, 255, 255, 0.9) !important; 
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 1000 !important; 
+}
+
+.checkmark {
+    width: 100px; 
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #0f2566;
+    stroke-miterlimit: 10;
+    box-shadow: inset 0px 0px 0px #0f2566;
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #0f2566;
+    fill: #fff;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: none;
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px #0f2566;
+    }
+}
+
+.fade-out {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.fade-out.hidden {
+    opacity: 0;
+}
+
+/* 
+####################################################### MEDIA QUERIES PARA RESPONSIVIDADE
+*/
+
+/* Para desktop médio */
+@media screen and (max-width: 1200px) {
+    .content {
+        width: 95%;
+        max-width: 1200px;
+    }
+
+    .function {
+        width: 160px;
+        height: 150px;
+        margin: 15px;
+    }
+}
+
+/* Para tablets e telas médias */
+@media screen and (max-width: 768px) {
+    .navtop {
+        height: auto;
+        min-height: 80px;
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+
+    .nav-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .nav-right a {
+        padding: 10px 15px;
+    }
+
+    .content h2 {
+        padding: 20px 0;
+        font-size: 20px;
+    }
+
+    .content > p, .content > div {
+        padding: 15px;
+        margin: 15px 0;
+    }
+
+    .function {
+        width: calc(33.33% - 30px);
+        margin: 15px;
+    }
+
+    .function i {
+        font-size: 60px;
+    }
+}
+
+/* Para dispositivos móveis */
+@media screen and (max-width: 480px) {
+    .navtop {
+        padding: 10px 5px;
+    }
+
+    .nav-left {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navtop img {
+        height: 50px;
+    }
+
+    .nav-right {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .nav-right a {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .content h2 {
+        font-size: 18px;
+        padding: 15px 0;
+    }
+
+    .content > p, .content > div {
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .function {
+        width: calc(50% - 20px);
+        height: 140px;
+        margin: 10px;
+    }
+
+    .function i {
+        font-size: 50px;
+    }
+
+    .checkmark {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Para telas muito pequenas */
+@media screen and (max-width: 320px) {
+    .function {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .nav-right a {
+        padding: 5px;
+        font-size: 14px;
+    }
+}

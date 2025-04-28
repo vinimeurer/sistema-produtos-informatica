@@ -1,0 +1,755 @@
+/* 
+####################################################### CSS NAVBAR
+*/
+
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+    font-size: 16px;
+}
+
+.navtop {
+    background-color: #0f2566;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center; 
+    padding: 0 20px; 
+}
+
+.nav-left {
+    flex: 0; 
+}
+
+.navtop img {
+    height: 70px; 
+}
+
+.nav-login-info {
+    padding: 50px;
+}
+
+.nav-login-info p {
+    font-size: 25px;
+    color: #eaebed;
+    font-weight: bold;
+}
+
+.nav-right {
+    margin-left: auto; 
+    display: flex; 
+    align-items: center; 
+}
+
+.nav-right a {
+    font-size: 20px;
+    padding-right: 30px;
+    text-decoration: none;
+    color: #eaebed;
+    font-weight: bold;
+}
+
+.nav-right a i {
+    padding: 2px 8px 0 0;
+}
+
+.nav-right a:hover {
+    color: #eaebed;
+}
+
+
+
+/* 
+####################################################### PÁGINA INICIAL 
+*/
+
+
+body.loggedin {
+	background-color: #f3f4f7;
+    margin: 0 auto;
+}
+.content {
+	width: 1200px;
+	margin: 0 auto;
+}
+.content h2 {
+	margin: 0;
+	padding: 25px 0;
+	font-size: 22px;
+	border-bottom: 1px solid #e0e0e3;
+	color: #0f2566;
+}
+.content > p, .content > div {
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+	margin: 25px 0;
+	padding: 25px;
+	background-color: #fff;
+    border-radius: 8px;
+}
+.content > p table td, .content > div table td {
+	padding: 5px;
+}
+.content > p table td:first-child, .content > div table td:first-child {
+	font-weight: bold;
+	color: #0f2566;
+	padding-right: 15px;
+}
+.content > div p {
+	padding: 5px;
+	margin: 0 0 10px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px 0;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #0f2566;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #0f2566;
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0d2059;
+    transform: scale(1.1);
+}
+
+.btn-secondary {
+    background-color: #0f2566;
+    transition: transform 0.3s ease;
+    color: #ffffff;
+    padding: 5px 10px;
+    border: 0px;
+}
+
+.btn-secondary:hover {
+    background-color: #0d2059;
+    transform: scale(1.1);
+}
+
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+
+/* 
+####################################################### CSS CADASTRAR USUÁRIO
+*/
+
+
+.info-icon {
+    display: inline-block;
+    margin-left: 5px;
+    cursor: help;
+    position: relative;
+}
+
+.info-icon:hover::after {
+    content: "Clique aqui para saber sobre os campos necessários";
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    white-space: nowrap;
+    z-index: 10;
+    border-radius: 4px;
+    font-size: 12px;
+    width: max-content;
+}
+
+form {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+ form label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #555555;
+}
+
+ form input[type="text"],
+ form input[type="number"],
+ select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    resize: none; 
+    height: 250px;
+    max-width: 100%; 
+}
+
+
+
+
+
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.price-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.price-group {
+    flex: 1;
+    transition: all 0.3s ease;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+    display: none;
+}
+
+input.error, 
+select.error, 
+textarea.error {
+    border-color: red;
+}
+
+.price-group.expand {
+    flex: 1.5;
+}
+
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.upload-container input[type="file"] {
+    display: none;
+}
+
+.upload-container label {
+    border: 2px dashed #0f2566;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    margin-bottom: 15px;
+}
+
+.upload-container label:hover {
+    background-color: #f3f4f7;
+}
+
+
+
+
+.preview-image {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.preview-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.preview-image .remove-image {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+
+
+
+.image-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 50px;
+    margin-bottom: 20px;
+
+}
+
+.preview-item {
+    position: relative;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 4px;
+    width: 120px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.preview-item img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+}
+
+.preview-item .filename {
+    display: block;
+    font-size: 11px;
+    margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #666;
+    padding: 0 2px;
+}
+
+.remove-image {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #6e6e6e;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+}
+
+.remove-image:hover {
+    background: #4d4d4d;
+    transform: scale(1.1);
+}
+
+.disabled {
+    background-color:  #85ad98; 
+    color: #ffffff; 
+    cursor: not-allowed;
+}
+
+.enabled {
+    background-color: #0f2566;
+    cursor: pointer;
+}
+
+form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0f2566;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+form input[type="submit"]:hover {
+    background-color: #0d2059;
+}
+
+/* 
+####################################################### MODAL LEGENDA
+*/
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    margin: 0 !important;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.6) !important; 
+    overflow: auto; 
+    opacity: 0; 
+    transition: opacity 0.3s ease; /
+}
+
+.modal.show {
+    display: block; 
+    opacity: 1; 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 600px; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 
+####################################################### MEDIA QUERIES PARA RESPONSIVIDADE
+*/
+
+/* Para desktop médio */
+@media screen and (max-width: 1200px) {
+    .content {
+        width: 95%;
+        max-width: 1200px;
+        padding: 0 15px;
+    }
+    
+    form {
+        width: 90%;
+        max-width: 400px;
+    }
+    
+    .modal-content {
+        width: 90%;
+        margin: 20px auto;
+    }
+}
+
+/* Para tablets e telas médias */
+@media screen and (max-width: 768px) {
+    .navtop {
+        height: auto;
+        min-height: 80px;
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+
+    .nav-right {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    .nav-right a {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    form {
+        width: 95%;
+        padding: 15px;
+    }
+
+    form label {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .form-row,
+    .price-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-group,
+    .price-group {
+        width: 100%;
+    }
+
+    .price-group.expand {
+        flex: 1;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"] {
+        padding: 8px;
+        margin-bottom: 12px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .label-permissoes label {
+        padding-left: 45px;
+    }
+
+    .label-permissoes label::before {
+        width: 40px;
+        height: 22px;
+    }
+
+    .label-permissoes label::after {
+        width: 18px;
+        height: 18px;
+    }
+
+    .label-permissoes input[type="checkbox"]:checked + label::after {
+        transform: translate(18px, -50%);
+    }
+
+    .senha-info-icon:hover::after,
+    .info-icon:hover::after {
+        font-size: 11px;
+        padding: 4px;
+    }
+}
+
+/* Para dispositivos móveis */
+@media screen and (max-width: 480px) {
+    * {
+        font-size: 14px;
+    }
+
+    .navtop {
+        padding: 10px 5px;
+    }
+
+    .nav-left {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navtop img {
+        height: 50px;
+    }
+
+    .nav-right {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .nav-right a {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    form {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+    }
+
+    form label {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"] {
+        padding: 7px;
+        font-size: 13px;
+    }
+
+    .label-permissoes {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .label-permissoes label {
+        padding-left: 40px;
+        font-size: 13px;
+    }
+
+    .label-permissoes label::before {
+        width: 36px;
+        height: 20px;
+    }
+
+    .label-permissoes label::after {
+        width: 16px;
+        height: 16px;
+    }
+
+    .label-permissoes input[type="checkbox"]:checked + label::after {
+        transform: translate(16px, -50%);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea,
+    .price-group input {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .error-message {
+        font-size: 11px;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .close {
+        font-size: 24px;
+    }
+}
+
+/* Para telas muito pequenas */
+@media screen and (max-width: 320px) {
+    .nav-right a {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    form {
+        padding: 10px;
+    }
+
+    form label {
+        font-size: 12px;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"] {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .btn {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+
+    .label-permissoes label {
+        padding-left: 35px;
+        font-size: 12px;
+    }
+
+    .label-permissoes label::before {
+        width: 32px;
+        height: 18px;
+    }
+
+    .label-permissoes label::after {
+        width: 14px;
+        height: 14px;
+    }
+
+    .label-permissoes input[type="checkbox"]:checked + label::after {
+        transform: translate(14px, -50%);
+    }
+
+    .error-message {
+        font-size: 0.75em;
+    }
+
+    .modal-content {
+        padding: 10px;
+    }
+}
+
+/* Ajustes específicos para elementos com hover em dispositivos touch */
+@media (hover: none) {
+    .btn:hover {
+        transform: none;
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover {
+        background-color: #0f2566;
+        transform: none;
+    }
+
+    .senha-info-icon:hover::after,
+    .info-icon:hover::after {
+        display: none;
+    }
+
+    .senha-info-icon:active::after,
+    .info-icon:active::after {
+        display: block;
+    }
+}
+
+
+
+

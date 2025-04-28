@@ -1,0 +1,198 @@
+/* 
+####################################################### CSS NAVBAR
+*/
+
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+    font-size: 16px;
+}
+
+.navtop {
+    background-color: #0f2566;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center; 
+    padding: 0 20px; 
+}
+
+.nav-left {
+    flex: 0; 
+}
+
+.navtop img {
+    height: 70px; 
+}
+
+.nav-login-info {
+    padding: 50px;
+}
+
+.nav-login-info p {
+    font-size: 25px;
+    color: #eaebed;
+    font-weight: bold;
+}
+
+.nav-right {
+    margin-left: auto; 
+    display: flex; 
+    align-items: center; 
+}
+
+.nav-right a {
+    font-size: 20px;
+    padding-right: 30px;
+    text-decoration: none;
+    color: #eaebed;
+    font-weight: bold;
+}
+
+.nav-right a i {
+    padding: 2px 8px 0 0;
+}
+
+.nav-right a:hover {
+    color: #eaebed;
+}
+
+
+/* 
+####################################################### PÁGINA INICIAL 
+*/
+
+
+body.loggedin {
+	background-color: #f3f4f7;
+    margin: 0 auto;
+}
+.content {
+	width: 1200px;
+	margin: 0 auto;
+}
+.content h2 {
+	margin: 0;
+	padding: 25px 0;
+	font-size: 22px;
+	border-bottom: 1px solid #e0e0e3;
+	color: #0f2566;
+}
+.content > p, .content > div {
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+	margin: 25px 0;
+	padding: 25px;
+	background-color: #fff;
+    border-radius: 8px;
+}
+.content > p table td, .content > div table td {
+	padding: 5px;
+}
+.content > p table td:first-child, .content > div table td:first-child {
+	font-weight: bold;
+	color: #0f2566;
+	padding-right: 15px;
+}
+.content > div p {
+	padding: 5px;
+	margin: 0 0 10px 0;
+}
+
+/* 
+####################################################### MEDIA QUERIES PARA RESPONSIVIDADE
+*/
+
+/* Para desktop médio */
+@media screen and (max-width: 1200px) {
+    .content {
+        width: 95%;
+        max-width: 1200px;
+    }
+
+    .function {
+        width: 160px;
+        height: 150px;
+        margin: 15px;
+    }
+}
+
+/* Para tablets e telas médias */
+@media screen and (max-width: 768px) {
+    .navtop {
+        height: auto;
+        min-height: 80px;
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+
+    .nav-right {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .nav-right a {
+        padding: 10px 15px;
+    }
+
+    .content h2 {
+        padding: 20px 0;
+        font-size: 20px;
+    }
+
+    .content > p, .content > div {
+        padding: 15px;
+        margin: 15px 0;
+    }
+}
+
+/* Para dispositivos móveis */
+@media screen and (max-width: 480px) {
+    .navtop {
+        padding: 10px 5px;
+    }
+
+    .nav-left {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navtop img {
+        height: 50px;
+    }
+
+    .nav-right {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .nav-right a {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .content h2 {
+        font-size: 18px;
+        padding: 15px 0;
+    }
+
+    .content > p, .content > div {
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .checkmark {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Para telas muito pequenas */
+@media screen and (max-width: 320px) {
+
+    .nav-right a {
+        padding: 5px;
+        font-size: 14px;
+    }
+}

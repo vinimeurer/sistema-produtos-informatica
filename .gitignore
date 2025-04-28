@@ -1,0 +1,11 @@
+# Ignorar tudo dentro da pasta readmefiles/
+readmefiles/*
+
+# Ignorar o arquivo README2.md
+README2.md
+
+# Ignorar tudo dentro da pasta tmp/
+tmp/*
+
+# Mas manter a pasta tmp/ versionada, incluindo um possível .gitkeep
+!tmp/.gitkeep
