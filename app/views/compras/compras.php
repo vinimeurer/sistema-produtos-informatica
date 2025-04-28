@@ -6,73 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Minhas Compras</title>
     <link rel="icon" type="image/x-icon" href="../public/assets/img/icon.ico">
-    <link href="../public/assets/css/list-produto.css" rel="stylesheet" type="text/css">
+    <link href="../public/assets/css/compras.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <style>
-        .compras-container {
-            max-width: 100%;
-            margin: 0 auto;
-        }
-        
-        .compra-card {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .compra-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .compra-date {
-            font-weight: bold;
-            color: #555;
-        }
-        
-        .compra-total {
-            font-size: 1.1em;
-            font-weight: bold;
-            color: #0f2566;
-        }
-        
-        .compra-items {
-            color: #666;
-        }
-        
-        .compra-actions {
-            margin-top: 10px;
-            text-align: right;
-        }
-        
-        .view-details {
-            background-color: #0f2566;
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .view-details:hover {
-            background-color: #0a1b4a;
-        }
-        
-        .no-orders {
-            text-align: center;
-            padding: 40px 0;
-            color: #666;
-        }
-    </style>
 </head>
 <body class="loggedin">
     <nav class="navtop">

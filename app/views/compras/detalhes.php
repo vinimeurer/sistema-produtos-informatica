@@ -6,79 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detalhes da Compra</title>
     <link rel="icon" type="image/x-icon" href="../public/assets/img/icon.ico">
-    <link href="../public/assets/css/list-produto.css" rel="stylesheet" type="text/css">
+    <link href="../public/assets/css/compras.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <style>
-        .compra-detalhes {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .compra-header {
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .compra-info {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        
-        .compra-info div {
-            margin-bottom: 10px;
-        }
-        
-        .compra-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
-        .compra-items {
-            width: 100%;
-        }
-        
-        .item-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        
-        .item-table th, .item-table td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .item-table th {
-            background-color: #f8f9fa;
-            font-weight: bold;
-        }
-        
-        .total-row td {
-            font-weight: bold;
-            border-top: 2px solid #ddd;
-        }
-        
-        .action-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        
-        .btn-back {
-            background-color: #6c757d;
-        }
-        
-        .btn-back:hover {
-            background-color: #5a6268;
-        }
-    </style>
 </head>
 <body class="loggedin">
     <nav class="navtop">
