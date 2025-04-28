@@ -148,8 +148,51 @@ body.loggedin {
 ####################################################### CSS CADASTRAR USUÁRIO
 */
 
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 0; /* Prevents overflow in flex items */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .form-group {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
 form {
-    width: 400px;
     margin: 0 auto;
     margin-top: 20px;
     background-color: #ffffff;

@@ -95,76 +95,95 @@ function formatarCNPJ($cnpj) {
                 </div>
             </div>
             <div>
-
-
                 <form onsubmit="removerMascara()" action="../public/index.php?controller=admin&action=editUsuario&id=<?= $usuario['idUsuario'] ?>" method="post">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" value="<?= htmlspecialchars($usuario['nome']) ?>" maxlength="150" required>
-
-                    <div class="label-cpf">
-                        <label for="documento">CPF:</label>
-                        <span id="cpfError" class="error-message">CPF inválido</span>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" value="<?= htmlspecialchars($usuario['nome']) ?>" maxlength="150" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="label-cpf">
+                                <label for="documento">CPF:</label>
+                                <span id="cpfError" class="error-message">CPF inválido</span>
+                            </div>
+                            <input oninput="mascara(this); atualizarLogin(this); validarDocumento(this)" type="text" id="documento" name="documento" value="<?= htmlspecialchars($usuario['documento']) ?>" maxlength="14" required>
+                        </div>
                     </div>
-                    <input oninput="mascara(this); atualizarLogin(this); validarDocumento(this)" type="text" id="documento" name="documento" value="<?= htmlspecialchars($usuario['documento']) ?>" maxlength="14" required>
-
-
-
-                    <label for="login">Login:</label>
-                    <!-- <span class="info-icon"><i class="fas fa-info-circle"></i></span> -->
-                    <input type="text" id="login" name="login" value="<?= htmlspecialchars($usuario['documento']) ?>" required readonly>
-
-                    <div class="label-senha">
-                        <label for="senha">Senha:</label>
-                        <span id="senhaError" class="error-message">Senha fraca. Consulte os critérios</span>
-                        <span class="senha-info-icon"><i class="fas fa-info-circle"></i></span>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="login">Login:</label>
+                            <input type="text" id="login" name="login" value="<?= htmlspecialchars($usuario['documento']) ?>" required readonly>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="label-senha">
+                                <label for="senha">Senha:</label>
+                                <span id="senhaError" class="error-message">Senha fraca. Consulte os critérios</span>
+                                <span class="senha-info-icon"><i class="fas fa-info-circle"></i></span>
+                            </div>
+                            <input type="password" id="senha" name="senha">
+                        </div>
                     </div>
-                    <input type="password" id="senha" name="senha"> 
-
-                    <label for="tipologin">Tipo de Login:</label>
-                    <select id="tipoLogin" name="tipoLogin" required>
-                        <!-- <option value="" hidden selected>-- Selecione o Tipo do Login --</option> -->
-                        <option value="1" <?php echo ($usuario['idTipoLogin'] === 1) ? 'selected' : ''; ?>>Usuário Comum</option>
-                        <option value="2" <?php echo ($usuario['idTipoLogin'] === 2) ? 'selected' : ''; ?>>Administrador</option>
-                    </select>
-
-                    <!-- Adicionando os campos de endereço -->
-                    <div class="label-cep">
-                        <label for="cep">CEP:</label>
-                        <span id="cepError" class="error-message">CEP inválido</span>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tipologin">Tipo de Login:</label>
+                            <select id="tipoLogin" name="tipoLogin" required>
+                                <option value="1" <?php echo ($usuario['idTipoLogin'] === 1) ? 'selected' : ''; ?>>Usuário Comum</option>
+                                <option value="2" <?php echo ($usuario['idTipoLogin'] === 2) ? 'selected' : ''; ?>>Administrador</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="label-cep">
+                                <label for="cep">CEP:</label>
+                                <span id="cepError" class="error-message">CEP inválido</span>
+                            </div>
+                            <input type="text" id="cep" name="cep" value="<?= htmlspecialchars($usuario['cep'] ?? '') ?>" maxlength="9" required>
+                        </div>
                     </div>
-                    <input type="text" id="cep" name="cep" value="<?= htmlspecialchars($usuario['cep'] ?? '') ?>" maxlength="9" required>
-
-                    <div class="endereco-grid">
-                        <div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
                             <label for="uf">UF:</label>
                             <input type="text" id="uf" name="uf" value="<?= htmlspecialchars($usuario['uf'] ?? '') ?>" maxlength="2" required>
                         </div>
-                        <div>
+                        
+                        <div class="form-group">
                             <label for="municipio">Município:</label>
                             <input type="text" id="municipio" name="municipio" value="<?= htmlspecialchars($usuario['municipio'] ?? '') ?>" maxlength="100" required>
                         </div>
                     </div>
-
-                    <label for="rua">Rua:</label>
-                    <input type="text" id="rua" name="rua" value="<?= htmlspecialchars($usuario['rua'] ?? '') ?>" maxlength="150" required>
-
-                    <div class="endereco-grid">
-                        <div>
+                    
+                    <div class="form-row">
+                        <div class="form-group" style="flex: 2;">
+                            <label for="rua">Rua:</label>
+                            <input type="text" id="rua" name="rua" value="<?= htmlspecialchars($usuario['rua'] ?? '') ?>" maxlength="150" required>
+                        </div>
+                        
+                        <div class="form-group">
                             <label for="numero">Número:</label>
                             <input type="text" id="numero" name="numero" value="<?= htmlspecialchars($usuario['numero'] ?? '') ?>" maxlength="10" required>
                         </div>
-                        <div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
                             <label for="complemento">Complemento:</label>
                             <input type="text" id="complemento" name="complemento" value="<?= htmlspecialchars($usuario['complemento'] ?? '') ?>" maxlength="100">
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="status">Status:</label>
+                            <select id="status" name="status" required>
+                                <option value="1" <?= ($usuario['idSituacaoUsuario'] == 1) ? 'selected' : ''; ?>>Ativo</option>
+                                <option value="2" <?= ($usuario['idSituacaoUsuario'] == 2) ? 'selected' : ''; ?>>Inativo</option>
+                            </select>
+                        </div>
                     </div>
-
-                    <label for="status">Status:</label>
-                    <select id="status" name="status" required>
-                        <option value="1" <?= ($usuario['idSituacaoUsuario'] == 1) ? 'selected' : ''; ?>>Ativo</option>
-                        <option value="2" <?= ($usuario['idSituacaoUsuario'] == 2) ? 'selected' : ''; ?>>Inativo</option>
-                    </select>
-
+                    
                     <input type="submit" id="submitBtn" value="Salvar Alterações" disabled style="background-color: #85ad98; color: #ffffff; cursor: not-allowed;">
                 </form>
             </div>

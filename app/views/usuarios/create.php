@@ -93,74 +93,89 @@ function formatarCNPJ($cnpj) {
 
             <div>
                 <form onsubmit="removerMascara()" action="../public/index.php?controller=admin&action=createUsuario" method="post">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" maxlength="150" required>
-
-                    <div class="label-cpf">
-                        <label for="documento">CPF:</label>
-                        <span id="cpfError" class="error-message">CPF inválido</span>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" name="nome" maxlength="150" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="label-cpf">
+                                <label for="documento">CPF:</label>
+                                <span id="cpfError" class="error-message">CPF inválido</span>
+                            </div>
+                            <input oninput="mascara(this); atualizarLogin(this); validarDocumento(this)" type="text" id="documento" name="documento" maxlength="14" required>
+                        </div>
                     </div>
-                    <input oninput="mascara(this); atualizarLogin(this); validarDocumento(this)" type="text" id="documento" name="documento" maxlength="14" equired>
                     
-                    <label for="login">Login:</label>
-                    <!-- <span class="info-icon"><i class="fas fa-info-circle"></i></span> -->
-                    <input type="text" id="login" name="login" required readonly>
-
-                    <div class="label-senha">
-                        <label for="senha">Senha:</label>
-                        <span id="senhaError" class="error-message">Senha fraca. Consulte os critérios</span>
-                        <span class="senha-info-icon"><i class="fas fa-info-circle"></i></span>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="login">Login:</label>
+                            <input type="text" id="login" name="login" required readonly>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="label-senha">
+                                <label for="senha">Senha:</label>
+                                <span id="senhaError" class="error-message">Senha fraca. Consulte os critérios</span>
+                                <span class="senha-info-icon"><i class="fas fa-info-circle"></i></span>
+                            </div>
+                            <input type="password" id="senha" name="senha" maxlength="255">
+                        </div>
                     </div>
-                    <input type="password" id="senha" name="senha" maxlength="255">
-
-                    <label for="tipologin">Tipo de Login:</label>
-                    <select id="tipoLogin" name="tipoLogin" required>
-                        <!-- <option value="" hidden selected>-- Selecione o Tipo do Login --</option> -->
-                        <option value="1">Usuário Comum</option>
-                        <option value="2">Administrador</option>
-                    </select>
-
-                    <!-- <div class="label-permissoes">
-                        <input type="checkbox" id="#" name="#" value="1">
-                        <label for="#">#</label>
-                    </div> -->
-
-
-                    <div class="label-cep">
-                        <label for="cep">CEP:</label>
-                        <span id="cepError" class="error-message">CEP inválido</span>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tipologin">Tipo de Login:</label>
+                            <select id="tipoLogin" name="tipoLogin" required>
+                                <option value="1">Usuário Comum</option>
+                                <option value="2">Administrador</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="label-cep">
+                                <label for="cep">CEP:</label>
+                                <span id="cepError" class="error-message">CEP inválido</span>
+                            </div>
+                            <input type="text" id="cep" name="cep" maxlength="9" required>
+                        </div>
                     </div>
-                    <input type="text" id="cep" name="cep" maxlength="9" required>
-
-                    <div class="endereco-grid">
-                        <div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
                             <label for="uf">UF:</label>
                             <input type="text" id="uf" name="uf" maxlength="2" required>
                         </div>
-                        <div>
+                        
+                        <div class="form-group">
                             <label for="municipio">Município:</label>
                             <input type="text" id="municipio" name="municipio" maxlength="100" required>
                         </div>
                     </div>
-
-                    <label for="rua">Rua:</label>
-                    <input type="text" id="rua" name="rua" maxlength="150" required>
-
-                    <div class="endereco-grid">
-                        <div>
+                    
+                    <div class="form-row">
+                        <div class="form-group" style="flex: 2;">
+                            <label for="rua">Rua:</label>
+                            <input type="text" id="rua" name="rua" maxlength="150" required>
+                        </div>
+                        
+                        <div class="form-group">
                             <label for="numero">Número:</label>
                             <input type="text" id="numero" name="numero" maxlength="10" required>
                         </div>
-                        <div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
                             <label for="complemento">Complemento:</label>
                             <input type="text" id="complemento" name="complemento" maxlength="100">
                         </div>
                     </div>
-
+                    
                     <input type="submit" id="submitBtn" value="Cadastrar Usuário" disabled style="background-color: #85ad98; color: #ffffff; cursor: not-allowed;">
                 </form>
             </div>
-        </div>
 
         <script src ="../public/assets/js/CadastrarUsuario.js"> 
             
